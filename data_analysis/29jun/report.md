@@ -6,17 +6,21 @@ tags: []
 
 # Training
 
------------------------------------------------------------------------
+
 --- Epoch 1/20 ---
   -> Train Loss: 0.5801 | Val Loss: 0.7653
   -> Val Acc: 0.3054 | Macro-F1: 0.1227 | Macro-DR: 0.2006 | Macro-FAR: 0.0899
   -> Normal Traffic FAR (Blocked Benign): 0.0016
   [*] New best model saved!
------------------------------------------------------------------------
+
+
+
 --- Epoch 2/20 ---
   -> Train Loss: 0.5334 | Val Loss: 0.5733
   -> Val Acc: 0.0953 | Macro-F1: 0.1043 | Macro-DR: 0.2944 | Macro-FAR: 0.0943
   -> Normal Traffic FAR (Blocked Benign): 0.0190
+
+
 
 --- Epoch 3/20 ---
   -> Train Loss: 0.5102 | Val Loss: 6.4158
@@ -24,11 +28,16 @@ tags: []
   -> Normal Traffic FAR (Blocked Benign): 0.0219
   [*] New best model saved!
 
+
+
 --- Epoch 4/20 ---
   -> Train Loss: 0.5026 | Val Loss: 3.5686
   -> Val Acc: 0.8905 | Macro-F1: 0.4316 | Macro-DR: 0.4183 | Macro-FAR: 0.0285
   -> Normal Traffic FAR (Blocked Benign): 0.2775
   [*] New best model saved!
+
+
+
 
 --- Epoch 5/20 ---
   -> Train Loss: 0.5029 | Val Loss: 0.5467
@@ -36,26 +45,38 @@ tags: []
   -> Normal Traffic FAR (Blocked Benign): 0.0152
   [*] New best model saved!
 
+
+
 --- Epoch 6/20 ---
   -> Train Loss: 0.4950 | Val Loss: 2.4202
   -> Val Acc: 0.7370 | Macro-F1: 0.2282 | Macro-DR: 0.3189 | Macro-FAR: 0.0619
   -> Normal Traffic FAR (Blocked Benign): 0.5589
+
+
+
 
 --- Epoch 7/20 ---
   -> Train Loss: 0.4930 | Val Loss: 0.5372
   -> Val Acc: 0.9438 | Macro-F1: 0.4771 | Macro-DR: 0.5602 | Macro-FAR: 0.0069
   -> Normal Traffic FAR (Blocked Benign): 0.0068
 
+
+
 --- Epoch 8/20 ---
   -> Train Loss: 0.4875 | Val Loss: 0.5332
   -> Val Acc: 0.9691 | Macro-F1: 0.4547 | Macro-DR: 0.5279 | Macro-FAR: 0.0044
   -> Normal Traffic FAR (Blocked Benign): 0.0128
+
+
+
 
 --- Epoch 9/20 ---
   -> Train Loss: 0.4828 | Val Loss: 0.5232
   -> Val Acc: 0.9395 | Macro-F1: 0.5015 | Macro-DR: 0.6115 | Macro-FAR: 0.0080
   -> Normal Traffic FAR (Blocked Benign): 0.0278
   [*] New best model saved!
+
+
 
 --- Epoch 10/20 ---
   -> Train Loss: 0.4782 | Val Loss: 0.5438
