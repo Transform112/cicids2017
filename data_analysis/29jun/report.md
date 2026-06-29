@@ -6,12 +6,13 @@ tags: []
 
 # Training
 
+-----------------------------------------------------------------------
 --- Epoch 1/20 ---
   -> Train Loss: 0.5801 | Val Loss: 0.7653
   -> Val Acc: 0.3054 | Macro-F1: 0.1227 | Macro-DR: 0.2006 | Macro-FAR: 0.0899
   -> Normal Traffic FAR (Blocked Benign): 0.0016
   [*] New best model saved!
-
+-----------------------------------------------------------------------
 --- Epoch 2/20 ---
   -> Train Loss: 0.5334 | Val Loss: 0.5733
   -> Val Acc: 0.0953 | Macro-F1: 0.1043 | Macro-DR: 0.2944 | Macro-FAR: 0.0943
