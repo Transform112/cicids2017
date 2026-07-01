@@ -1,0 +1,117 @@
+Cell20:-
+
+========== STEP 1: CLEAN PORTS & DEFINE FEATURES ==========
+Parsing messy ports into integers...
+Ports cleaned successfully.
+
+Total Input Features: 18
+Feature List: ['src_port', 'dst_port', 'protocol', 'duration', 'packets_fwd', 'packets_bwd', 'bytes_fwd', 'bytes_bwd', 'bytes_per_sec', 'packets_per_sec', 'pkt_size_mean_fwd', 'pkt_size_mean_bwd', 'syn_flag_count', 'ack_flag_count', 'fin_flag_count', 'rst_flag_count', 'flow_iat_mean', 'flag_missing']
+
+========== STEP 2: COMPUTE CLASS WEIGHTS ==========
+BENIGN Count (Class 0): 100000
+ATTACK Count (Class 1): 159328
+Computed scale_pos_weight: 0.6276
+
+-----------------------------------------------------------------------
+
+Cell21:-
+
+========== STEP 3: TRAIN STAGE 1 XGBOOST ==========
+Training model... (Monitoring validation PR-AUC)
+[0]	validation_0-aucpr:0.98564
+[20]	validation_0-aucpr:0.99365
+[40]	validation_0-aucpr:0.99395
+[60]	validation_0-aucpr:0.99519
+[80]	validation_0-aucpr:0.99588
+[100]	validation_0-aucpr:0.99637
+[120]	validation_0-aucpr:0.99753
+[140]	validation_0-aucpr:0.99810
+[160]	validation_0-aucpr:0.99829
+[180]	validation_0-aucpr:0.99844
+[200]	validation_0-aucpr:0.99857
+[220]	validation_0-aucpr:0.99863
+[240]	validation_0-aucpr:0.99867
+[260]	validation_0-aucpr:0.99872
+[280]	validation_0-aucpr:0.99875
+[300]	validation_0-aucpr:0.99876
+[320]	validation_0-aucpr:0.99875
+[323]	validation_0-aucpr:0.99875
+
+✅ Training Complete. Best Iteration: 293
+
+-----------------------------------------------------------------------
+
+Cell22:-
+
+========== STEP 4: EVALUATE ON COMBINED_VAL ==========
+Validation PR-AUC: 0.9988
+
+--- Evaluation at Threshold: 0.3 ---
+Confusion Matrix:
+[[349759   7726]
+ [    55 112929]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9998    0.9784    0.9890    357485
+           1     0.9360    0.9995    0.9667    112984
+
+    accuracy                         0.9835    470469
+   macro avg     0.9679    0.9890    0.9778    470469
+weighted avg     0.9845    0.9835    0.9836    470469
+
+Macro-F1: 0.9778
+
+--- Evaluation at Threshold: 0.5 ---
+Confusion Matrix:
+[[349865   7620]
+ [    72 112912]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9998    0.9787    0.9891    357485
+           1     0.9368    0.9994    0.9671    112984
+
+    accuracy                         0.9837    470469
+   macro avg     0.9683    0.9890    0.9781    470469
+weighted avg     0.9847    0.9837    0.9838    470469
+
+Macro-F1: 0.9781
+
+-----------------------------------------------------------------------
+
+Cell23:-
+
+========== STEP 5: EVALUATE ON TEST SETS ==========
+--- CICIDS2017 Test Set Performance (Threshold 0.3) ---
+Macro-F1: 0.9999
+Recall (Attacks): 0.9998
+
+--- UNSW-NB15 Test Set Performance (Threshold 0.3) ---
+Macro-F1: 0.9737
+Recall (Attacks): 0.9997
+
+Generalization Indicator (Recall Gap): 0.0001
+
+-----------------------------------------------------------------------
+
+Cell24:-
+
+========== STEP 6: FEATURE IMPORTANCE ==========
+Top 10 Most Important Features:
+          Feature  Importance
+pkt_size_mean_bwd       0.299
+   rst_flag_count       0.129
+      packets_bwd       0.129
+     flag_missing       0.104
+         duration       0.053
+        bytes_bwd       0.053
+        bytes_fwd       0.051
+  packets_per_sec       0.034
+      packets_fwd       0.028
+         dst_port       0.025
+
+========== STEP 7: SAVE MODEL ==========
+✅ Stage 1 XGBoost model saved successfully to xgb_binary_stage1.json
